@@ -36,14 +36,17 @@
     methods: {
       // 表格搜索函数，可支持多列搜索
       search: function (data, argumentObj) {
+        let res = data;
+        let dataClone = data;
         for (let argu in argumentObj) {
           if (argumentObj[argu].length > 0) {
-            data = data.filter((d) => {
-              return d[argu].indexOf(argumentObj[argu]) > -1
-            })
+            res = dataClone.filter(d => {
+                return d[argu].indexOf(argumentObj[argu]) > -1;
+            });
+            dataClone = res;
           }
         }
-        return data
+        return res;
       },
       handleSearch: function () {
         var argumentObjStr = '{"' + this.searchColumn + '": "' + this.searchContent + '"}' // 拼接json
