@@ -41,7 +41,7 @@
         for (let argu in argumentObj) {
           if (argumentObj[argu].length > 0) {
             res = dataClone.filter(d => {
-                return d[argu].indexOf(argumentObj[argu]) > -1;
+              return d[argu].indexOf(argumentObj[argu]) > -1;
             });
             dataClone = res;
           }
